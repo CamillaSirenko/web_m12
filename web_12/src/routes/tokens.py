@@ -14,7 +14,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-router = APIRouter()
+router = APIRouter(tags=["auth"])
 
 # Dependency to get the current user based on the provided token
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
